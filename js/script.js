@@ -84,8 +84,20 @@ var loadQuoteBtn  = document.getElementById('loadQuote');
 
 // Creating the functions needed
 function getRandomQuote() {
-  console.log('foo');
+  var min         = 0;
+  var max         = (quotes.length - 1);
+  // According to the quotes array length, pick up a random number, round it and store the object within a variable
+  var quoteNumber = Math.random() * (max - min) + min;
+  quoteNumber     = Math.round(quoteNumber);
+  var quoteObject = quotes[quoteNumber];
+  // Return the object
+  return quoteObject;
+}
+
+function printQuote() {
+  var quoteObject = getRandomQuote();
+  console.log(quoteObject);
 }
 
 // Adding the event listeners
-loadQuoteBtn.onclick = getRandomQuote;
+loadQuoteBtn.addEventListener("click", printQuote, false);
