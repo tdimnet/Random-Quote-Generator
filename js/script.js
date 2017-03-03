@@ -74,15 +74,18 @@ var quotes = [
 
 
 // Selecting the variables within the DOM
+/*
 var quoteBox      = document.getElementById('quote-box');
 var quoteItSelf   = quoteBox.getElementsByClassName('quote');
 var author        = quoteBox.getElementsByClassName('author');
 var citation      = quoteBox.getElementsByClassName('citation');
 var year          = quoteBox.getElementsByClassName('year');
-var loadQuoteBtn  = document.getElementById('loadQuote');
+*/
+var $loadQuoteBtn  = document.getElementById('loadQuote');
 
 
 // Creating the functions needed
+  // This function returns a random quote
 function getRandomQuote() {
   var min         = 0;
   var max         = (quotes.length - 1);
@@ -94,10 +97,17 @@ function getRandomQuote() {
   return quoteObject;
 }
 
+  // This function recovers the random quote and print it.
 function printQuote() {
-  var quoteObject = getRandomQuote();
-  console.log(quoteObject);
+  // Take this object and assign the variables needed
+  var quoteObject   = getRandomQuote();
+  var quote         = quoteObject.quote;
+  var author        = quoteObject.author;
+  var citation      = quoteObject.citation;
+  var year          = quoteObject.year;
+
+  console.log(quote);
 }
 
 // Adding the event listeners
-loadQuoteBtn.addEventListener("click", printQuote, false);
+$loadQuoteBtn.addEventListener("click", printQuote, false);
