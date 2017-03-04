@@ -1,12 +1,6 @@
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 
-//
-  // Initial code
-//
-/*
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-*/
 
 // The array of quotes (source: https://addicted2success.com/quotes/30-famous-quotes-that-will-inspire-success-in-you/)
 var quotes = [
@@ -74,13 +68,6 @@ var quotes = [
 
 
 // Selecting the variables within the DOM
-/*
-var quoteBox      = document.getElementById('quote-box');
-var quoteItSelf   = quoteBox.getElementsByClassName('quote');
-var author        = quoteBox.getElementsByClassName('author');
-var citation      = quoteBox.getElementsByClassName('citation');
-var year          = quoteBox.getElementsByClassName('year');
-*/
 var $loadQuoteBtn  = document.getElementById('loadQuote');
 
 
@@ -106,7 +93,20 @@ function printQuote() {
   var citation      = quoteObject.citation;
   var year          = quoteObject.year;
 
-  console.log(quote);
+  // Target the dom elements & update their content
+  document.querySelector('.quote').textContent = quote;
+  document.querySelector('.author').textContent = author;
+    // if citation or year are not null, fill them in.
+  if (citation === null) {
+    document.querySelector('.citation').textContent = "";
+  } else {
+    document.querySelector('.citation').textContent = citation;
+  }
+  if (year === null) {
+    document.querySelector('.year').textContent = "";
+  } else {
+    document.querySelector('.year').textContent = year;
+  }
 }
 
 // Adding the event listeners
