@@ -103,6 +103,7 @@ function printQuote() {
   // Change the background-color
   var newbgColor    = changeBackgroundColor();
   console.log(newbgColor);
+  document.body.style.transition = ".4s";
   document.body.style.backgroundColor = newbgColor;
 
   // Take this object and assign the variables needed
