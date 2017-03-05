@@ -72,19 +72,19 @@ var $loadQuoteBtn  = document.getElementById('loadQuote');
 
 
 // Creating the functions needed
+  // This function returns a new hex color
 function changeBackgroundColor() {
-  // Create a random number & convert it into an hex value
   var newColor = Math.random();
+  // if newColor < 0,00
   if (newColor < 0.1) {
     newColor = newColor + 0.1;
   }
+  // Turn the variable into a hex value
   newColor = newColor * 1000000;
   newColor = Math.round(newColor);
   newColor = "#" + newColor;
   return newColor;
 }
-
-
 
   // This function returns a random quote
 function getRandomQuote() {
@@ -98,12 +98,13 @@ function getRandomQuote() {
   return quoteObject;
 }
 
-  // This function recovers the random quote and print it.
+  // This function
+    // recovers the new background color and change it
+    // recovers the random quote and print it.
 function printQuote() {
   // Change the background-color
-  var newbgColor    = changeBackgroundColor();
-  console.log(newbgColor);
-  document.body.style.transition = ".4s";
+  var newbgColor                      = changeBackgroundColor();
+  document.body.style.transition      = ".4s";
   document.body.style.backgroundColor = newbgColor;
 
   // Take this object and assign the variables needed
@@ -114,18 +115,18 @@ function printQuote() {
   var year          = quoteObject.year;
 
   // Target the dom elements & update their content
-  document.querySelector('.quote').textContent = quote;
+  document.querySelector('.quote').textContent  = quote;
   document.querySelector('.author').textContent = author;
     // if citation or year are not null, fill them in.
   if (citation === null) {
     document.querySelector('.citation').textContent = "";
   } else {
-    document.querySelector('.citation').textContent = citation;
+    document.querySelector('.citation').textContent = ", " + citation;
   }
   if (year === null) {
     document.querySelector('.year').textContent = "";
   } else {
-    document.querySelector('.year').textContent = year;
+    document.querySelector('.year').textContent =", " + year;
   }
 }
 
