@@ -72,6 +72,20 @@ var $loadQuoteBtn  = document.getElementById('loadQuote');
 
 
 // Creating the functions needed
+function changeBackgroundColor() {
+  // Create a random number & convert it into an hex value
+  var newColor = Math.random();
+  if (newColor < 0.1) {
+    newColor = newColor + 0.1;
+  }
+  newColor = newColor * 1000000;
+  newColor = Math.round(newColor);
+  newColor = "#" + newColor;
+  return newColor;
+}
+
+
+
   // This function returns a random quote
 function getRandomQuote() {
   var min         = 0;
@@ -86,6 +100,11 @@ function getRandomQuote() {
 
   // This function recovers the random quote and print it.
 function printQuote() {
+  // Change the background-color
+  var newbgColor    = changeBackgroundColor();
+  console.log(newbgColor);
+  document.body.style.backgroundColor = newbgColor;
+
   // Take this object and assign the variables needed
   var quoteObject   = getRandomQuote();
   var quote         = quoteObject.quote;
