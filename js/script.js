@@ -7,15 +7,11 @@ var quotes = [
   {
     quote     : "You can do anything but not everything",
     author    : "David Allen",
-    citation  : "Making it All Work",
-    // year      : 2009,
-    // tags      : null
+    citation  : "Making it All Work"
   },
   {
     quote     : "If you don’t build your dream, someone else will hire you to help them build theirs.",
     author    : "Dhirubhai Ambani",
-    // citation  : null,
-    // year      : null,
     tags      : ['personal development']
   },
   {
@@ -28,16 +24,12 @@ var quotes = [
   {
     quote     : "When I dare to be powerful – to use my strength in the service of my vision, then it becomes less and less important whether I am afraid.",
     author    : "Audre Lorde",
-    // citation  : null,
-    // year      : 2015,
     tags      : ['business', 'personal', 'future']
   },
   {
     quote     : "Whenever you find yourself on the side of the majority, it is time to pause and reflect.",
     author    : "Mark Twain",
-    citation  : "Mark Twain's like book",
-    // year      : null,
-    // tags      : null
+    citation  : "Mark Twain's like book"
   },
   {
     quote     : "I have not failed. I’ve just found 10,000 ways that won’t work.",
@@ -49,14 +41,11 @@ var quotes = [
   {
     quote     : "A successful man is one who can lay a firm foundation with the bricks others have thrown at him.",
     author    : "David Brinkley",
-    // citation  : null,
-    // year      : null,
     tags      : ['business', 'personal development']
   },
   {
     quote     : "No one can make you feel inferior without your consent.",
     author    : "Eleanor Roosevelt",
-    // citation  : null,
     year      : 1936,
     tags      : ['famous', 'future']
   },
@@ -71,7 +60,6 @@ var quotes = [
     quote     : "Success is about creating benefit for all and enjoying the process. If you focus on this & adopt this definition, success is yours.",
     author    : "Kelly Kim",
     citation  : "My book, my story",
-    // year      : null,
     tags      : ['business', 'personal development']
   },
 ];
@@ -101,7 +89,7 @@ function getRandomQuote() {
   var min         = 0;
   var max         = (quotes.length - 1);
   // According to the quotes array length, pick up a random number, round it and store the object within a variable
-  var quoteNumber = Math.random() * (max - min) + min;
+  var quoteNumber = Math.random() * max;
   quoteNumber     = Math.round(quoteNumber);
   var quoteObject = quotes[quoteNumber];
   // Return the object
@@ -120,30 +108,33 @@ function printQuote() {
   // Display the quote
   var quoteObject = getRandomQuote();
   var text = '';
+  // The quote itself
   text += '<p class="quote">' + quoteObject.quote + '</p>';
   text += '<p class="source">';
+  // The quote author
   text += quoteObject.author;
+  // If the citation property exists, add it
   if (quoteObject.hasOwnProperty('citation')) {
     text += '<span class="citation">' + quoteObject.citation + '</span>';
-  }
+  } // End if
+  // If the year property exists, add it
   if (quoteObject.hasOwnProperty('year')) {
     text += '<span class="year">' + quoteObject.year + '</span>';
-  }
+  } // End: if
+  // If the array of tags property exists, add it
   if (quoteObject.hasOwnProperty('tags')) {
     for (var i = 0; i < quoteObject.tags.length; i++) {
       text += '<span class="tags">' + quoteObject.tags[i] + '</span>';
-    }
-
-  }
+    } // End: for
+  } // End: if
   text += '</p>';
-
-
+  // Once the quote has been constructed, add it to the DOM
   document.getElementById('quote-box').innerHTML = text;
-  console.log(text);
-}
+} // End: printQuote() function
+
 
 // Adding the event listeners
   // When the quote button is clicked, run printQuote
 $loadQuoteBtn.addEventListener("click", printQuote, false);
-  // Every 10 seconds, run printQuote
-//window.setInterval(printQuote, 10000);
+  // Every 30 seconds, run printQuote
+window.setInterval(printQuote, 30000);

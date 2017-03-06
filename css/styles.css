@@ -61,7 +61,8 @@ body {
   font-style: normal;
 }
 .tags {
-  font-style: italic;
+  font-weight: bold;
+  font-size: .9em;
 }
 
 #loadQuote {
