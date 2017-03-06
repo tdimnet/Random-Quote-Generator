@@ -49,12 +49,19 @@ body {
   font-style: italic;
 }
 .citation:before {
-  /*content: ", ";*/
+  content: ", ";
   font-style: normal;
 }
 .year:before {
-  /*content: ", ";*/
+  content: ", ";
   font-style: normal;
+}
+.tags::before {
+  content: ", ";
+  font-style: normal;
+}
+.tags {
+  font-style: italic;
 }
 
 #loadQuote {

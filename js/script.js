@@ -8,14 +8,14 @@ var quotes = [
     quote     : "You can do anything but not everything",
     author    : "David Allen",
     citation  : "Making it All Work",
-    year      : 2009,
-    tags      : null
+    // year      : 2009,
+    // tags      : null
   },
   {
     quote     : "If you don’t build your dream, someone else will hire you to help them build theirs.",
     author    : "Dhirubhai Ambani",
-    citation  : null,
-    year      : null,
+    // citation  : null,
+    // year      : null,
     tags      : ['personal development']
   },
   {
@@ -28,16 +28,16 @@ var quotes = [
   {
     quote     : "When I dare to be powerful – to use my strength in the service of my vision, then it becomes less and less important whether I am afraid.",
     author    : "Audre Lorde",
-    citation  : null,
-    year      : 2015,
+    // citation  : null,
+    // year      : 2015,
     tags      : ['business', 'personal', 'future']
   },
   {
     quote     : "Whenever you find yourself on the side of the majority, it is time to pause and reflect.",
     author    : "Mark Twain",
     citation  : "Mark Twain's like book",
-    year      : null,
-    tags      : null
+    // year      : null,
+    // tags      : null
   },
   {
     quote     : "I have not failed. I’ve just found 10,000 ways that won’t work.",
@@ -49,14 +49,14 @@ var quotes = [
   {
     quote     : "A successful man is one who can lay a firm foundation with the bricks others have thrown at him.",
     author    : "David Brinkley",
-    citation  : null,
-    year      : null,
+    // citation  : null,
+    // year      : null,
     tags      : ['business', 'personal development']
   },
   {
     quote     : "No one can make you feel inferior without your consent.",
     author    : "Eleanor Roosevelt",
-    citation  : null,
+    // citation  : null,
     year      : 1936,
     tags      : ['famous', 'future']
   },
@@ -71,7 +71,7 @@ var quotes = [
     quote     : "Success is about creating benefit for all and enjoying the process. If you focus on this & adopt this definition, success is yours.",
     author    : "Kelly Kim",
     citation  : "My book, my story",
-    year      : null,
+    // year      : null,
     tags      : ['business', 'personal development']
   },
 ];
@@ -117,42 +117,33 @@ function printQuote() {
   document.body.style.transition      = ".4s";
   document.body.style.backgroundColor = newbgColor;
 
-  // Take this object and assign the variables needed
-  var quoteObject   = getRandomQuote();
-  var quote         = quoteObject.quote;
-  var author        = quoteObject.author;
-  var citation      = quoteObject.citation;
-  var year          = quoteObject.year;
-  var tags          = quoteObject.tags;
-
-
-  // Target the dom elements & update their content
-  document.querySelector('.quote').textContent  = quote;
-  document.querySelector('.author').textContent = author;
-    // if citation or year are not null, fill them in.
-  if (citation === null) {
-    document.querySelector('.citation').textContent = "";
-  } else {
-    document.querySelector('.citation').textContent = ", " + citation;
+  // Display the quote
+  var quoteObject = getRandomQuote();
+  var text = '';
+  text += '<p class="quote">' + quoteObject.quote + '</p>';
+  text += '<p class="source">';
+  text += quoteObject.author;
+  if (quoteObject.hasOwnProperty('citation')) {
+    text += '<span class="citation">' + quoteObject.citation + '</span>';
   }
-  if (year === null) {
-    document.querySelector('.year').textContent = "";
-  } else {
-    document.querySelector('.year').textContent =", " + year;
+  if (quoteObject.hasOwnProperty('year')) {
+    text += '<span class="year">' + quoteObject.year + '</span>';
   }
-  if (tags === null) {
-    //document.querySelector('.year').textContent = "";
-    console.log('foo');
-  } else {
-    for (var i = 0; i < tags.length; i++) {
-      console.log(tags[i]);
+  if (quoteObject.hasOwnProperty('tags')) {
+    for (var i = 0; i < quoteObject.tags.length; i++) {
+      text += '<span class="tags">' + quoteObject.tags[i] + '</span>';
     }
-    //document.querySelector('.year').textContent =", " + year;
+
   }
+  text += '</p>';
+
+
+  document.getElementById('quote-box').innerHTML = text;
+  console.log(text);
 }
 
 // Adding the event listeners
   // When the quote button is clicked, run printQuote
 $loadQuoteBtn.addEventListener("click", printQuote, false);
   // Every 10 seconds, run printQuote
-window.setInterval(printQuote, 10000);
+//window.setInterval(printQuote, 10000);
