@@ -6,59 +6,59 @@
 var quotes = [
   {
     quote     : "You can do anything but not everything",
-    author    : "David Allen",
+    source    : "David Allen",
     citation  : "Making it All Work"
   },
   {
     quote     : "If you don’t build your dream, someone else will hire you to help them build theirs.",
-    author    : "Dhirubhai Ambani",
+    source    : "Dhirubhai Ambani",
     tags      : ['personal development']
   },
   {
     quote     : "The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.",
-    author    : "Mark Caine",
+    source    : "Mark Caine",
     citation  : "Awesome book ever write",
     year      : 1998,
     tags      : ['personal development', 'personal', 'future']
   },
   {
     quote     : "When I dare to be powerful – to use my strength in the service of my vision, then it becomes less and less important whether I am afraid.",
-    author    : "Audre Lorde",
+    source    : "Audre Lorde",
     tags      : ['business', 'personal', 'future']
   },
   {
     quote     : "Whenever you find yourself on the side of the majority, it is time to pause and reflect.",
-    author    : "Mark Twain",
+    source    : "Mark Twain",
     citation  : "Mark Twain's like book"
   },
   {
     quote     : "I have not failed. I’ve just found 10,000 ways that won’t work.",
-    author    : "Thomas A. Edison",
+    source    : "Thomas A. Edison",
     citation  : "Edison's biography",
     year      : 1900,
     tags      : ['personal']
   },
   {
     quote     : "A successful man is one who can lay a firm foundation with the bricks others have thrown at him.",
-    author    : "David Brinkley",
+    source    : "David Brinkley",
     tags      : ['business', 'personal development']
   },
   {
     quote     : "No one can make you feel inferior without your consent.",
-    author    : "Eleanor Roosevelt",
+    source    : "Eleanor Roosevelt",
     year      : 1936,
     tags      : ['famous', 'future']
   },
   {
     quote     : "Live as if you were to die tomorrow. Learn as if you were to live forever.",
-    author    : "Mahatma Gandhi",
+    source    : "Mahatma Gandhi",
     citation  : "Gandhi's book maximum edition",
     year      : 1965,
     tags      : ['famous', 'political', 'future']
   },
   {
     quote     : "Success is about creating benefit for all and enjoying the process. If you focus on this & adopt this definition, success is yours.",
-    author    : "Kelly Kim",
+    source    : "Kelly Kim",
     citation  : "My book, my story",
     tags      : ['business', 'personal development']
   },
@@ -112,7 +112,7 @@ function printQuote() {
   text += '<p class="quote">' + quoteObject.quote + '</p>';
   text += '<p class="source">';
   // The quote author
-  text += quoteObject.author;
+  text += quoteObject.source;
   // If the citation property exists, add it
   if (quoteObject.hasOwnProperty('citation')) {
     text += '<span class="citation">' + quoteObject.citation + '</span>';
