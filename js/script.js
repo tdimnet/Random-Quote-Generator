@@ -116,17 +116,17 @@ function printQuote() {
   // If the citation property exists, add it
   if (quoteObject.hasOwnProperty('citation')) {
     text += '<span class="citation">' + quoteObject.citation + '</span>';
-  } // End if
+  }
   // If the year property exists, add it
   if (quoteObject.hasOwnProperty('year')) {
     text += '<span class="year">' + quoteObject.year + '</span>';
-  } // End: if
+  }
   // If the array of tags property exists, add it
   if (quoteObject.hasOwnProperty('tags')) {
     for (var i = 0; i < quoteObject.tags.length; i++) {
       text += '<span class="tags">' + quoteObject.tags[i] + '</span>';
-    } // End: for
-  } // End: if
+    }
+  }
   text += '</p>';
   // Once the quote has been constructed, add it to the DOM
   document.getElementById('quote-box').innerHTML = text;
